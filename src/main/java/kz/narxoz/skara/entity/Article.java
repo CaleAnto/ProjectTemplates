@@ -19,6 +19,8 @@ public class Article {
 
   @Column(name = "theme", nullable = false)
   private String theme;
+  @Column(name = "theme_image", nullable = false)
+  private String theme_image;
   @Column(name = "subtext", nullable = false, length = 1000)
   private String subtext;
   @Column(name = "author", nullable = false)
@@ -29,9 +31,10 @@ public class Article {
   private String tag;
   @Column(name = "readtime", nullable = false)
   private int read;
-  @Column(name = "url", nullable = false, length = 1000)
+  @Column(name = "text", nullable = false, length = 100000)
   private String url;
-
+  @Column(name = "images", nullable = false, length = 10000)
+  private String images;
 
 
 
