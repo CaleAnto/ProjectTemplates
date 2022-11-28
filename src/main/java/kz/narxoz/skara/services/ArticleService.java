@@ -1,8 +1,8 @@
 package kz.narxoz.skara.services;
 
+import java.util.List;
 import kz.narxoz.skara.entity.Article;
 
-import java.util.List;
 
 public interface ArticleService {
   List<Article> getAllArticle();
