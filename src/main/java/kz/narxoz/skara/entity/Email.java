@@ -20,6 +20,4 @@ public class Email {
   @Column(name = "emails")
   private String emails;
 
-
-
 }
