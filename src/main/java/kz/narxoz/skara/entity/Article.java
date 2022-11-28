@@ -26,7 +26,9 @@ public class Article {
   @Column(name = "author", nullable = false)
   private String author;
   @Column(name = "data", nullable = false)
-  private int data;
+  private String data;
+  @Column(name = "view", nullable = false)
+  private int view;
   @Column(name = "tag", nullable = false)
   private String tag;
   @Column(name = "readtime", nullable = false)
