@@ -18,25 +18,25 @@ public class Article {
   private Long id;
 
   @Column(name = "theme", nullable = false)
-  private String theme;
+  private String theme; // Тема Статьи
   @Column(name = "theme_image", nullable = false)
-  private String theme_image;
+  private String theme_image; // Изображение Статьи
   @Column(name = "subtext", nullable = false, length = 1000)
-  private String subtext;
+  private String subtext; // Подзаголовок темы статьи
   @Column(name = "author", nullable = false)
-  private String author;
+  private String author; // Автор статьи
   @Column(name = "data", nullable = false)
-  private String data;
+  private String data; // Дата выставление статьи
   @Column(name = "view", nullable = false)
-  private int view;
+  private int view; // Количество просмотров ( не для вывода)
   @Column(name = "tag", nullable = false)
-  private String tag;
+  private String tag; // теги статии
   @Column(name = "readtime", nullable = false)
-  private int read;
+  private int read; // время чтение статьи
   @Column(name = "text", nullable = false, length = 100000)
-  private String url;
+  private String text; // Текст статьи
   @Column(name = "images", nullable = false, length = 10000)
-  private String images;
+  private String images; // изображение статьи
 
 
 

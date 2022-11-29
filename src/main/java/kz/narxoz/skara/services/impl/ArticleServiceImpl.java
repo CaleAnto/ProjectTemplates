@@ -4,6 +4,7 @@ import kz.narxoz.skara.entity.Article;
 import kz.narxoz.skara.repository.ArticleRepository;
 import kz.narxoz.skara.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +24,12 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Article getArticles(Long id){
       return articleRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Article> ratingArticles() {
+      List<Article> articles = articleRepository.findAll(Sort.by(Sort.Direction.ASC, "view"));
+      return articles;
     }
 
 

@@ -29,4 +29,7 @@ public class Commits {
   @Column(name = "rate")
   private int rate;
 
+  @Column(name = "postId")
+  private Long postId;
+
 }
