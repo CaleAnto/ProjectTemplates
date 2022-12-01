@@ -1,15 +1,15 @@
 package kz.narxoz.skara.repository;
 
-import kz.narxoz.skara.entity.Commits;
+import kz.narxoz.skara.entity.Roles;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Repository
 @Transactional
-public interface CommitsRepository extends JpaRepository<Commits, Long> {
+public interface RoleRepository extends JpaRepository<Roles, Long> {
 
-  List<Commits> findByPostId(Long id);
+  Roles findByRole(String role);
+
 }
