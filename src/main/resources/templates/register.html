@@ -14,20 +14,18 @@
         .main {
             width: 83%;
         }
-        .p1 {
-            color: gray;
-            font-size: 10pt;
-        }
         li {
             display: inline-block;
         }
-        .ul1 {
-         margin-left: -3%;
+        .login1{
+            height: 30%;
+            width: 30%;
         }
     </style>
 </head>
 <body>
-    <div class="main-container d-flex justify-content-center">
+<div class="main-container">
+    <div style="width: 100%" class="d-flex justify-content-center">
         <div class="main d-flex justify-content-center" style="background-color: #111111">
             <div style="width: 95%" class="">
                 <hr style="background-color: white; margin-bottom: 0px; margin-top: 0px"/>
@@ -35,20 +33,34 @@
                     <div th:insert="navbar.html :: navbar"></div>
 
                 </div>
-                <h2 style="color: white; font-weight: bold" th:text="${article.getTheme()}"></h2>
-                <h4 style="color: gray; margin-top: 3%;" th:text="${article.getSubtext()}"></h4>
-                <hr style="background-color: white;"/>
-                <ul class="ul1">
-                    <li class="p1">by</li>
-                    <li><a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor}"></a></li>
-                    <li class="p1"><p th:text="${article.getData()}"></p></li>
-                    <li class="p1">in</li>
-                    <li><a href="#"  style="color: white; font-weight: bold">Genshin Impact, Гайды</a></li>
-                    <li class="p1"> Reading Time: 1 min read</li>
-                </ul>
-                <img th:src="'/images/' + ${article.getImages()}" />
             </div>
         </div>
     </div>
+    <div style="width: 100%" class="d-flex justify-content-center">
+        <div class="login-form d-flex justify-content-center"
+             style="border: 8px double gray; border-radius: 20px; width: 20%; margin-top: 6%">
+            <div style="width: 80%">
+                <form action="reg" method="post">
+                    <h2 class="text-center text-light">Registration</h2>
+                    <div class="form-group">
+                        <input type="text" name="fullname" class="form-control" placeholder="Username" required="required">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email" required="required">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required="required">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password2" class="form-control" placeholder="Password-confirm" required="required">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
