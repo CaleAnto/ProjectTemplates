@@ -37,6 +37,7 @@
                 <hr style="background-color: white;"/>
                 <p class="p1">by <a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor()}"></a>   in
                     <a href="#"  style="color: white; font-weight: bold" th:text="${article.getTag()}">Genshin Impact, Гайды</a> Reading Time: 1 min read</p>
+                <img th:src="'/images/' + ${article.getImages()}" />
             </div>
         </div>
     </div>
