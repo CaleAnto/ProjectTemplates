@@ -33,11 +33,8 @@ public class Article {
   private String tag; // теги статии
   @Column(name = "readtime", nullable = false)
   private int read; // время чтение статьи
-  @Column(name = "text", nullable = false, length = 100000)
-  private String text; // Текст статьи
-  @Column(name = "images", nullable = false, length = 10000)
-  private String images; // изображение статьи
-
+  @Column(name = "id_statia", nullable = false, length = 100000)
+  private String id_statia;
 
 
 }
