@@ -40,7 +40,7 @@
             <div class="login-form d-flex justify-content-center"
                  style="border: 8px double gray; border-radius: 20px; width: 20%; margin-top: 6%">
                 <div style="width: 80%">
-                    <form action="/login" method="post">
+                    <form th:action="@{/auth}" method="post">
                         <h2 class="text-center text-light">Log in</h2>
                         <div class="form-group">
                             <input type="email" name="user_email" class="form-control" placeholder="Email" required="required">
@@ -57,7 +57,7 @@
                             </label>
                         </div>
                     </form>
-                    <p class="text-center"><a th:href="register">Create an Account</a></p>
+                    <p class="text-center"><a th:href="@{/register}">Create an Account</a></p>
                 </div>
             </div>
         </div>

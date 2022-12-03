@@ -65,13 +65,10 @@ public class SecurityController {
       newUser.setPassword(password);
       newUser.setEmail(email);
 
-
       if(userService.createUser(newUser)!=null){
         return "redirect:/login";
       }
-
     }
-
     return "redirect:?register?error";
   }
 
