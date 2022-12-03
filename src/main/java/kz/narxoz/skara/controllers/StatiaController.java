@@ -19,10 +19,21 @@ public class StatiaController {
     model.addAttribute("img1", statiaService.getImage1(id));
     model.addAttribute("img2", statiaService.getImage2(id));
 
-    model.addAttribute("list1", statiaService.getList1(id));
-    model.addAttribute("list2", statiaService.getList2(id));
-    model.addAttribute("list3", statiaService.getList3(id));
-    model.addAttribute("list4", statiaService.getList4(id));
+    String list = String.valueOf(statiaService.getList1(id));
+    String[] list_array = list.split("/");
+    model.addAttribute("list1", list_array);
+
+    list = String.valueOf(statiaService.getList2(id));
+    list_array = list.split("/");
+    model.addAttribute("list2", list_array);
+
+    list = String.valueOf(statiaService.getList3(id));
+    list_array = list.split("/");
+    model.addAttribute("list3", list_array);
+
+    list = String.valueOf(statiaService.getList4(id));
+    list_array = list.split("/");
+    model.addAttribute("list4", list_array);
 
     model.addAttribute("text1", statiaService.getText1(id));
     model.addAttribute("text2", statiaService.getText2(id));
