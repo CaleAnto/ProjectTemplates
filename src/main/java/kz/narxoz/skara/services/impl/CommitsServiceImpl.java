@@ -20,4 +20,14 @@ public class CommitsServiceImpl implements CommitsService {
     return commits;
   }
 
+  @Override
+  public Commits saveComments(Commits commits){
+    return commitsRepository.save(commits);
+  }
+
+  @Override
+  public void deleteComment(Long id){
+    commitsRepository.deleteById(id);
+  }
+
 }

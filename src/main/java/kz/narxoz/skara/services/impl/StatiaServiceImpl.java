@@ -13,85 +13,13 @@ public class StatiaServiceImpl implements StatiaService {
   StatiaRepository statiaRepository;
 
   @Override
-  public Statia getImage1(Long id){
-    return statiaRepository.getByImg1(id);
+  public Statia getStatia(Long id){
+    return statiaRepository.findById(id).orElse(null);
   }
 
   @Override
-  public Statia getImage2(Long id){
-    return statiaRepository.getByImg2(id);
+  public Statia createStatia(Statia statia){
+    return statiaRepository.save(statia);
   }
-
-  @Override
-  public Statia getList1(Long id){
-    return statiaRepository.getByList1(id);
-  }
-
-  @Override
-  public Statia getList2(Long id){
-    return statiaRepository.getByList2(id);
-  }
-
-  @Override
-  public Statia getList3(Long id){
-    return statiaRepository.getByList3(id);
-  }
-
-  @Override
-  public Statia getList4(Long id){
-    return statiaRepository.getByList4(id);
-  }
-
-  @Override
-  public Statia getText1(Long id) {
-    return statiaRepository.getByText1(id);
-  }
-
-  @Override
-  public Statia getText2(Long id) {
-    return statiaRepository.getByText2(id);
-  }
-
-  @Override
-  public Statia getText3(Long id) {
-    return statiaRepository.getByText3(id);
-  }
-
-  @Override
-  public Statia getText4(Long id) {
-    return statiaRepository.getByText4(id);
-  }
-
-  @Override
-  public Statia getText5(Long id) {
-    return statiaRepository.getByText5(id);
-  }
-
-  @Override
-  public Statia getTitle1(Long id) {
-    return statiaRepository.getByTitle1(id);
-  }
-
-  @Override
-  public Statia getTitle2(Long id) {
-    return statiaRepository.getByTitle2(id);
-  }
-
-  @Override
-  public Statia getTitle3(Long id) {
-    return statiaRepository.getByTitle3(id);
-  }
-
-  @Override
-  public Statia getTitle4(Long id) {
-    return statiaRepository.getByTitle4(id);
-  }
-
-  @Override
-  public Statia getTitle5(Long id) {
-    return statiaRepository.getByTitle5(id);
-  }
-
-
 
 }

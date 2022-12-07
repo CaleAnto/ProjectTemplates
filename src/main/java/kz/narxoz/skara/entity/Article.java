@@ -1,7 +1,6 @@
 package kz.narxoz.skara.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 
 @Entity
