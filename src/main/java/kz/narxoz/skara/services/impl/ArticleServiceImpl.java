@@ -17,7 +17,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> getAllArticle(){
-      List<Article> articles = articleRepository.findAll();
+      List<Article> articles = articleRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
       return articles;
     }
 
