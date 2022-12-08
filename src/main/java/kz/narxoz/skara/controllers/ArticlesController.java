@@ -22,13 +22,17 @@ public class ArticlesController {
   @GetMapping("/articles")
   public String getArticles(Model model) {
     List<Article> articles = articleService.getAllArticle();
-    List<Article> first = articles.subList(0,2);
-    List<Article> second = articles.subList(3,5);
-    List<Article> threes = articles.subList(6,8);
-    model.addAttribute("articles1", first);
-    model.addAttribute("articles2", second);
-    model.addAttribute("articles3", threes);
-
+    int count = articles.size();
+    if(count <= 2){
+      List<Article> first = articles.subList(0, 2);
+      model.addAttribute("articles1", first);
+    } else if (count <= 5) {
+      List<Article> second = articles.subList(3,5);
+      model.addAttribute("articles2", second);
+    } else if( count <=8 ) {
+      List<Article> threes = articles.subList(6, 8);
+      model.addAttribute("articles3", threes);
+    }
     return "main";
   }
 
