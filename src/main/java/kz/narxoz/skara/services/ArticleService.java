@@ -10,4 +10,8 @@ public interface ArticleService {
   Article getArticles(Long id);
 
   List<Article> ratingArticles();
+
+  Article saveArticle(Article article);
+
+  List<Article> randArticles(int limit);
 }
