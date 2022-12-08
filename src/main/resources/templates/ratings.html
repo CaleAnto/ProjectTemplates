@@ -36,7 +36,7 @@
 
             </div>
 
-            <table th:each="art: ${articles}" style="border-collapse: separate; border-spacing: 0 15px;">
+            <table th:each="art: ${article}" style="border-collapse: separate; border-spacing: 0 15px;">
                 <tr>
                     <td>
                         <img width="350" height="250" th:src="'/images/' + ${art.getTheme_image()}">
