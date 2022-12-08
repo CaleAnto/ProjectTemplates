@@ -36,18 +36,27 @@
 
             </div>
             <h1 class="text-secondary text font-weight-bold">Рейтинги</h1>
-            <table th:each="article: ${article}" style="border-collapse: separate; border-spacing: 0 15px;">
+            <table th:each="article: ${rating}" style="border-collapse: separate; border-spacing: 0 15px;">
                 <tr>
                     <td>
-                        <img width="300" height="200" th:src="'/images/' + ${article.getTheme_image()}">
+                        <a th:href="'/articles/' + ${article.getId()}">
+                            <img width="300" height="200" th:src="'/images/' + ${article.getTheme_image()}">
+                        </a>
                     </td>
                     <td style="padding-left: 3%;">
                         <div style="width: 60%; height: 60%">
-                            <h2 style="color: white; font-weight: bold; font-size: 13pt" th:text="${article.getTheme()}"></h2>
+                            <a th:href="'/articles/' + ${article.getId()}"><h2 style="color: white; font-weight: bold; font-size: 13pt" th:text="${article.getTheme()}"></h2></a>
                             <ul class="ul1">
                                 <li class="p1" style="font-weight: bold; color: white; margin-left: -7%">BY</li>
                                 <li style="font-weight: bold; "><a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor}"></a></li>
                                 <li class="p1" style="color: white;"><p th:text="${article.getData()}"></p></li>
+                                <li class="p1" style="margin-left: 2%;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                    </svg>
+                                </li>
+                                <li class="p1" style="color: white;"><p th:text="${article.getView()}"></p></li>
                             </ul>
                             <h4 style="color: white; margin-top: 3%; font-size: 9pt" th:text="${article.getSubtext()}"></h4>
                         </div>
@@ -56,9 +65,17 @@
             </table>
         </div>
         <div style="
-            position: fixed; border: 2px double red; height: 85%; width: 22%; left:67%; top: 13%;
+            position: fixed; height: 100%; width: 22%; left:67%; top: 13%; overflow-y: scroll;
         ">
-            <img width="300" height="200" th:src="'/images/' + ${article.getTheme_image()}">
+            <th:block th:each="article: ${ads}">
+                <a th:href="'/articles/' + ${article.getId()}"><img width="320" height="200" th:src="'/images/' + ${article.getTheme_image()}"></a>
+                <a th:href="'/articles/' + ${article.getId()}"><h4 style="color: white; margin-top: 3%; font-size: 9pt" th:text="${article.getSubtext()}"></h4></a>
+                <ul class="ul1">
+                    <li class="p1" style="font-weight: bold; color: white; margin-left: -7%">BY</li>
+                    <li style="font-weight: bold; "><a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor}"></a></li>
+                    <li class="p1" style="color: white;"><p th:text="${article.getData()}"></p></li>
+                </ul>
+            </th:block>
         </div>
     </div>
 </div>

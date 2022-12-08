@@ -22,37 +22,35 @@
             display: inline-block;
         }
         .ul1 {
-         margin-left: -3%;
+            margin-left: -3%;
         }
     </style>
 </head>
 <body>
-    <div class="main-container d-flex justify-content-center">
-        <div class="main d-flex justify-content-center" style="background-color: #111111">
-            <div style="width: 95%" class="">
-                <hr style="background-color: white; margin-bottom: 0px; margin-top: 0px"/>
-                <div class="">
-                    <div th:insert="navbar.html :: navbar"></div>
+<div class="main-container d-flex justify-content-center">
+    <div class="main d-flex justify-content-center" style="background-color: #111111">
+        <div style="width: 95%" class="">
+            <hr style="background-color: white; margin-bottom: 0px; margin-top: 0px"/>
+            <div class="">
+                <div th:insert="navbar.html :: navbar"></div>
 
-                </div>
-                <h2 style="color: white; font-weight: bold" th:text="${article.getTheme()}"></h2>
-                <h4 style="color: gray; margin-top: 3%;" th:text="${article.getSubtext()}"></h4>
-                <hr style="background-color: white;"/>
-                <ul class="ul1">
-                    <li class="p1">by</li>
-                    <li><a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor}"></a></li>
-                    <li class="p1"><p th:text="${article.getData()}"></p></li>
-                    <li class="p1">in</li>
-                    <li><a href="#"  style="color: white; font-weight: bold">Genshin Impact, Гайды</a></li>
-                    <li class="p1"> Reading Time: 1 min read</li>
-                </ul>
             </div>
-            <div>
-                <ul th:each="list1: ${list1}">
-                    <li th:text="${list1}"></li>
-                </ul>
+            <h2 style="color: white; font-weight: bold" th:text="${article.getTheme()}"></h2>
+            <h4 style="color: gray; margin-top: 3%;" th:text="${article.getSubtext()}"></h4>
+            <hr style="background-color: white;"/>
+            <ul class="ul1">
+                <li class="p1">by</li>
+                <li><a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor}"></a></li>
+                <li class="p1"><p th:text="${article.getData()}"></p></li>
+                <li class="p1">in</li>
+                <li><a href="#"  style="color: white; font-weight: bold">Genshin Impact, Гайды</a></li>
+                <li class="p1"> Reading Time: 1 min read</li>
+            </ul>
+            <div th:insert= "'articles/' + ${article.getTemp()} + '.html' :: ${article.getTemp()}">
+
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

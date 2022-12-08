@@ -32,14 +32,14 @@ public class SecurityController {
   public String getUserLoginPage(Model model) {
     if (isAuthenticated()) {
       model.addAttribute("currentUser", getUserData());
-      return "redirect:/books";
+      return "redirect:/news";
     }
     return "login";
   }
 
   @GetMapping("/index")
   public String log(){
-    return "redirect:/books";
+    return "redirect:/news";
   }
 
   @GetMapping("/logout")

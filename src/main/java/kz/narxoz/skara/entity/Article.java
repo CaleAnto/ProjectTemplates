@@ -30,6 +30,8 @@ public class Article {
   private int view; // Количество просмотров ( не для вывода)
   @Column(name = "tag", nullable = false)
   private String tag; // теги статии
+  @Column(name = "temp", nullable = false)
+  private String temp; // страница статии
   @Column(name = "readtime", nullable = false)
   private int read; // время чтение статьи
   @Column(name = "id_statia", nullable = false, length = 100000)
