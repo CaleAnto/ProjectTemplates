@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class ArticlesController {
 
@@ -19,7 +21,14 @@ public class ArticlesController {
 
   @GetMapping("/articles")
   public String getArticles(Model model) {
-    model.addAttribute("articles", articleService.getAllArticle());
+    List<Article> articles = articleService.getAllArticle();
+    List<Article> first = articles.subList(0,2);
+    List<Article> second = articles.subList(3,5);
+    List<Article> threes = articles.subList(6,8);
+    model.addAttribute("articles1", first);
+    model.addAttribute("articles2", second);
+    model.addAttribute("articles3", threes);
+
     return "main";
   }
 
@@ -30,7 +39,7 @@ public class ArticlesController {
     return null;
   }
 
-  @GetMapping("/form/articles")
+  @PostMapping("/save/articles")
   public String saveArticles(@ModelAttribute("articles") Article article){
     articleService.saveArticle(article);
     return null;
@@ -41,8 +50,8 @@ public class ArticlesController {
     Article article = articleService.getArticles(id);
     model.addAttribute("article", article);
     Commits commits = new Commits();
-    model.addAttribute("commentsForm", commits);
-    model.addAttribute("comments", commitsService.commentPost(id));
+ //   model.addAttribute("commentsForm", commits);
+ //   model.addAttribute("comments", commitsService.commentPost(id));
     return "main";
   }
 
