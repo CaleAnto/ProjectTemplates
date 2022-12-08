@@ -14,4 +14,10 @@ public interface ArticleService {
   Article saveArticle(Article article);
 
   List<Article> randArticles(int limit);
+
+  List<Article> firstArticles();
+
+  List<Article> secondArticles();
+
+  List<Article> threesArticles();
 }
