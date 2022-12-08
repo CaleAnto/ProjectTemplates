@@ -37,11 +37,25 @@ public class ArticleServiceImpl implements ArticleService {
       return articleRepository.save(article);
     }
 
-  @Override
-  public List<Article> randArticles(int limit) {
-    List<Article> articles = articleRepository.randArticles(limit);
-    return articles;
-  }
+    @Override
+    public List<Article> randArticles(int limit) {
+      List<Article> articles = articleRepository.randArticles(limit);
+      return articles;
+    }
+
+    @Override
+    public List<Article> firstArticles(){
+      return articleRepository.firstTheeArticles();
+    }
+    @Override
+    public List<Article> secondArticles(){
+      return articleRepository.secondTheeArticles();
+    }
+    @Override
+    public List<Article> threesArticles(){
+      return articleRepository.threesTheeArticles();
+    }
+
 
 
 }

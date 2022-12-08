@@ -16,4 +16,14 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
   @Query(value = "Select * from article ORDER BY random() limit :limit", nativeQuery = true)
   List<Article> randArticles(@Param("limit") int limit);
 
+  @Query(value = "select * from article order by id ASC limit 3", nativeQuery = true)
+  List<Article> firstTheeArticles();
+
+  @Query(value = "select * from article order by id ASC offset 3", nativeQuery = true)
+  List<Article> secondTheeArticles();
+
+  @Query(value = "select * from article order by id ASC offset 6", nativeQuery = true)
+  List<Article> threesTheeArticles();
+
+
 }
