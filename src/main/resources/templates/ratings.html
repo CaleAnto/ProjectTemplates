@@ -35,17 +35,30 @@
                 <div th:insert="navbar.html :: navbar"></div>
 
             </div>
-
-            <table th:each="art: ${article}" style="border-collapse: separate; border-spacing: 0 15px;">
+            <h1 class="text-secondary text font-weight-bold">Рейтинги</h1>
+            <table th:each="article: ${article}" style="border-collapse: separate; border-spacing: 0 15px;">
                 <tr>
                     <td>
-                        <img width="350" height="250" th:src="'/images/' + ${art.getTheme_image()}">
+                        <img width="300" height="200" th:src="'/images/' + ${article.getTheme_image()}">
                     </td>
-                    <td>
-
+                    <td style="padding-left: 3%;">
+                        <div style="width: 60%; height: 60%">
+                            <h2 style="color: white; font-weight: bold; font-size: 13pt" th:text="${article.getTheme()}"></h2>
+                            <ul class="ul1">
+                                <li class="p1" style="font-weight: bold; color: white; margin-left: -7%">BY</li>
+                                <li style="font-weight: bold; "><a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor}"></a></li>
+                                <li class="p1" style="color: white;"><p th:text="${article.getData()}"></p></li>
+                            </ul>
+                            <h4 style="color: white; margin-top: 3%; font-size: 9pt" th:text="${article.getSubtext()}"></h4>
+                        </div>
                     </td>
                 </tr>
             </table>
+        </div>
+        <div style="
+            position: fixed; border: 2px double red; height: 85%; width: 22%; left:67%; top: 13%;
+        ">
+            <img width="300" height="200" th:src="'/images/' + ${article.getTheme_image()}">
         </div>
     </div>
 </div>
