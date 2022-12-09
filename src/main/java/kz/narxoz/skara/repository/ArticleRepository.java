@@ -25,5 +25,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
   @Query(value = "select * from article order by id ASC offset 6", nativeQuery = true)
   List<Article> threesTheeArticles();
 
+  List<Article> findByTag(String tag);
+
 
 }

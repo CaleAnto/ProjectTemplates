@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
-*Автор контроллер.
+ *Автор контроллер.
  */
 @Controller
 public class ArticlesController {
@@ -51,10 +51,23 @@ public class ArticlesController {
     return "ratings";
   }
 
+  @GetMapping("/article/{tag}")
+  public String ratingsArticles(@PathVariable("tag") String tag, Model model) {
+    model.addAttribute("articles", articleService.findByTag(tag));
+    return null; // Замена
+  }
+
+  @GetMapping("/addArticle")
+  public String ratingsArticles() {
+
+    return "addArticle";
+  }
+
   @PostMapping("/save/articles")
   public String saveArticles(@ModelAttribute("articles") Article article) {
+    article.setTemp("none");
     articleService.saveArticle(article);
-    return null;
+    return "news";
   }
 
 
@@ -76,6 +89,7 @@ public class ArticlesController {
     Commits commits = new Commits();
     //model.addAttribute("commentsForm", commits);
     //model.addAttribute("comments", commitsService.commentPost(id));
+    model.addAttribute("ads", articleService.firstArticles());
     return "main";
   }
 

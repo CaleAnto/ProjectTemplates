@@ -18,11 +18,19 @@
             color: gray;
             font-size: 10pt;
         }
-        li {
+        .li1 {
             display: inline-block;
         }
         .ul1 {
             margin-left: -3%;
+        }
+        .ul2 li::before {
+            content: "\2022";
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
     </style>
 </head>
@@ -39,12 +47,12 @@
             <h4 style="color: gray; margin-top: 3%;" th:text="${article.getSubtext()}"></h4>
             <hr style="background-color: white;"/>
             <ul class="ul1">
-                <li class="p1">by</li>
-                <li><a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor}"></a></li>
-                <li class="p1"><p th:text="${article.getData()}"></p></li>
-                <li class="p1">in</li>
-                <li><a href="#"  style="color: white; font-weight: bold">Genshin Impact, Гайды</a></li>
-                <li class="p1"> Reading Time: 1 min read</li>
+                <li class="p1 li1">by</li>
+                <li class="li1"><a href="#" style="color: green; font-weight: bold" th:text="${article.getAuthor}"></a></li>
+                <li class="p1 li1"><p th:text="${article.getData()}"></p></li>
+                <li class="p1 li1">in</li>
+                <li class="li1"><a href="#"  style="color: white; font-weight: bold">Genshin Impact, Гайды</a></li>
+                <li class="p1 li1"> Reading Time: 1 min read</li>
             </ul>
             <div th:insert= "'articles/' + ${article.getTemp()} + '.html' :: ${article.getTemp()}">
 
