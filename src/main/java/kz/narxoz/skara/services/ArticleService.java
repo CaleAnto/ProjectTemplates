@@ -20,4 +20,6 @@ public interface ArticleService {
   List<Article> secondArticles();
 
   List<Article> threesArticles();
+
+  List<Article> findByTag(String tag);
 }

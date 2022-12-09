@@ -51,6 +51,12 @@ public class ArticlesController {
     return "ratings";
   }
 
+  @GetMapping("/article/{tag}")
+  public String ratingsArticles(@PathVariable("tag") String tag, Model model) {
+    model.addAttribute("articles", articleService.findByTag(tag));
+    return null; // Замена
+  }
+
   @PostMapping("/save/articles")
   public String saveArticles(@ModelAttribute("articles") Article article) {
     article.setTemp("none");
