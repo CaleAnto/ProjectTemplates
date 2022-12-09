@@ -1,23 +1,29 @@
 package kz.narxoz.skara.controllers;
 
+import java.io.IOException;
+import java.nio.file.*;
 import kz.narxoz.skara.entity.Statia;
 import kz.narxoz.skara.services.StatiaService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.io.IOException;
-import java.nio.file.*;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ *Статьи контроллер.
+ */
 @Controller
 public class StatiaController {
 
   @Autowired
   StatiaService statiaService;
-  public static String UPLOAD_DIRECTORY = "C:/Users/admin/Desktop/project/Skara/src/main/resources/images";
+  public static String UPLOAD_DIRECTORY =
+      "C:/Users/admin/Desktop/project/Skara/src/main/resources/images";
 
+  /**
+   *Получение статьи.
+   */
   @GetMapping("/statia/{id}")
   public String getArticles(@PathVariable("id") Long id, Model model) {
     Statia statia = statiaService.getStatia(id);
@@ -43,13 +49,19 @@ public class StatiaController {
     return null;
   }
 
+  /**
+   *Статьи формы контроллер.
+   */
   @GetMapping("/form/statia")
-  public String formStatia(Model model){
+  public String formStatia(Model model) {
     Statia statia = new Statia();
     model.addAttribute("statia", statia);
     return "add_book";
   }
 
+  /**
+   *Статьи контроллер.
+   */
   @PostMapping("/form/statia/upload")
   public String uploadStatia(@ModelAttribute("statia") Statia statia,
                              @RequestParam("img1") MultipartFile image1,

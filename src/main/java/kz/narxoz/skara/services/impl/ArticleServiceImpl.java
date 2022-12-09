@@ -56,6 +56,11 @@ public class ArticleServiceImpl implements ArticleService {
       return articleRepository.threesTheeArticles();
     }
 
+    @Override
+    public List<Article> findByTag(String tag) {
+      return articleRepository.findByTag(tag);
+    }
+
 
 
 }
