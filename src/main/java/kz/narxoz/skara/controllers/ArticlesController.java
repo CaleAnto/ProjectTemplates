@@ -25,13 +25,13 @@ public class ArticlesController {
   /**
    * Гет запрос на главную страницу.
    */
-  @GetMapping("/articles")
+  @GetMapping("/news")
   public String getArticles(Model model) {
     model.addAttribute("articles1", articleService.firstArticles());
     model.addAttribute("articles2", articleService.secondArticles());
     model.addAttribute("articles3", articleService.threesArticles());
 
-    return "main";
+    return "news";
   }
 
   /**
@@ -44,11 +44,11 @@ public class ArticlesController {
     return null;
   }
 
-  @GetMapping("/rating")
+  @GetMapping("/ratings")
   public String ratingsArticles(Model model) {
     model.addAttribute("rating", articleService.ratingArticles());
     model.addAttribute("ads", articleService.firstArticles());
-    return null;
+    return "ratings";
   }
 
   @PostMapping("/save/articles")
@@ -57,24 +57,26 @@ public class ArticlesController {
     return null;
   }
 
-  /**
-   * Гет запрос на отдельную страницу.
-   */
-  @GetMapping("/articles/{id}")
-  public String getOneArticles(@PathVariable("id") Long id, Model model) {
-    Article article = articleService.getArticles(id);
-    model.addAttribute("article", article);
-    Commits commits = new Commits();
-    //model.addAttribute("commentsForm", commits);
-    //model.addAttribute("comments", commitsService.commentPost(id));
-    return "main";
-  }
 
   @PostMapping("/articles/commits/{id}")
   public String commitsArticles(@PathVariable("id") Long id,
                                 @ModelAttribute("commits") Commits commits) {
     commitsService.saveComments(commits);
     return null;
+  }
+
+  /**
+   * Гет запрос на отдельную страницу.
+   */
+
+  @GetMapping("/articles/{id}")
+  public String getTokabe(@PathVariable("id") Long id, Model model) {
+    Article article = articleService.getArticles(id);
+    model.addAttribute("article", article);
+    Commits commits = new Commits();
+    //model.addAttribute("commentsForm", commits);
+    //model.addAttribute("comments", commitsService.commentPost(id));
+    return "main";
   }
 
 }
