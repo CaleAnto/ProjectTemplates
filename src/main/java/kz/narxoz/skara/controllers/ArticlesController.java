@@ -53,6 +53,7 @@ public class ArticlesController {
 
   @PostMapping("/save/articles")
   public String saveArticles(@ModelAttribute("articles") Article article) {
+    article.setTemp("none");
     articleService.saveArticle(article);
     return null;
   }
