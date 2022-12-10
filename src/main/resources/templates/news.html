@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #212121;
+        }
+        .main {
+            width: 83%;
+        }
+        .p1 {
+            color: gray;
+            font-size: 10pt;
+        }
+        li {
+            display: inline-block;
+        }
+        .ul1 {
+            margin-left: -3%;
+        }
+    </style>
+</head>
+<body>
+<div class="main-container d-flex justify-content-center">
+    <div class="main d-flex justify-content-center" style="background-color: #111111">
+        <div style="width: 95%" class="">
+            <hr style="background-color: white; margin-bottom: 0px; margin-top: 0px"/>
+            <div class="">
+                <div th:insert="navbar.html :: navbar"></div>
+            </div>
+            <h1 class="text-secondary text font-weight-bold">Новости</h1>
+            <table>
+                <tr th:if="${articles1}">
+                    <td th:each="art: ${articles1}">
+                        <div>
+                            <a th:href="'/articles/' + ${art.getId()}">
+                                <img width="365" height="180" th:src="'/images/' + ${art.getTheme_image()}" style=" margin-left: 2%">
+                            </a>
+                            <a th:href="'/articles/' + ${art.getId()}">
+                                <h2 style="
+                                    color: white; font-weight: bold; font-size: 13pt; margin-left: 2%" th:text="${art.getTheme()}
+                                "></h2>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr th:if="${articles2}">
+                    <td th:each="art: ${articles2}">
+                        <div>
+                            <a th:href="'/articles/' + ${art.getId()}">
+                                <img th:href="'/articles/' + ${art.getId()}" width="360" height="180" th:src="'/images/' + ${art.getTheme_image()}">
+                            </a>
+                            <a th:href="'/articles/' + ${art.getId()}">
+                                <h2 style="
+                                    color: white; font-weight: bold; font-size: 13pt; margin-left: 2%" th:text="${art.getTheme()}
+                                "></h2>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr th:if="${articles3}">
+                    <td th:each="art: ${articles3}">
+                        <div>
+                            <a th:href="'/articles/' + ${art.getId()}">
+                                <img th:href="'/articles/' + ${art.getId()}" width="360" height="180" th:src="'/images/' + ${art.getTheme_image()}">
+                            </a>
+                            <a th:href="'/articles/' + ${art.getId()}">
+                                <h2 style="
+                                    color: white; font-weight: bold; font-size: 13pt; margin-left: 2%" th:text="${art.getTheme()}
+                                "></h2>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+/*Вот так выглядить полностью законченная статья
+Она статичная так как полностью написанна от руки*/
